@@ -2,6 +2,9 @@
 class Cache {
     protected $_filename;
     private static function getCacheFolder(){
+        if (!file_exists(ROOT_DIR.'cacheParseResults')) {
+            mkdir(ROOT_DIR.'cacheParseResults', 0777, true);
+        }
         return ROOT_DIR.'cacheParseResults';
     }
     public function __construct($fileName)
